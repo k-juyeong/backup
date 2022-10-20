@@ -1,0 +1,211 @@
+@charset "utf-8";
+
+/* * {outline: 1px solid red;} */
+body, ul, li, fieldset, legend, h {margin: 0; padding: 0;}
+a {text-decoration: none; color: inherit; }
+ul,li {list-style: none;}
+address {font-style: normal;}
+fieldset {border: none;}
+legend {display: none;}
+input[type=radio],
+input[type=checkbox] {margin: 3px 2px;}
+button {border: none;}
+:root {
+    /* color */
+    --font-color-top: #fff;
+    --font-color-gnb: #fff;
+    --font-color-footer: #fff;
+
+    --bg-color-top: #111;
+    --bg-color-gnb: #222;
+    --bg-color-footer: #ccc;
+    --bg-color-aside: lightSkyBlue;
+    --bg-color-section: lightCyan;
+
+    --btn-color: #fff;
+    --btn-bg-color: green;
+    /* spacing */
+
+    /* font-size */
+    font-size: 16px;
+
+    --font-size-small: 0.8rem;
+    --font-size-middle: 1.2rem;
+    --font-size-big: 1.5rem;
+}
+
+/* 공통 */
+.content {
+    width: 600px;
+
+    margin: 0 auto;
+}
+
+/* uppermost */
+#uppermost {
+    display: flex;
+    align-items: center;
+    height: 50px;
+    background-color: var(--bg-color-top);
+}
+#uppermost .content {
+    display: flex;
+    justify-content: flex-end;
+    font-size: var(--font-size-middle);
+    font-weight: bold;
+    color: var(--font-color-top);
+}
+#uppermost .content .interval {
+    padding: 0 5px;
+}
+
+/* header */
+#header {
+    height: 150px;
+}
+#header .content {
+    height: 100%;
+    background-image: url('https://cdn.pixabay.com/photo/2016/03/27/20/00/coffee-1284041_960_720.jpg');
+    background-size: 600px 180px;
+}
+/* gnb */
+#gnb {
+    display: flex;
+    align-items: center;
+    height: 50px;
+    font-size: var(--font-size-middle);
+    color: var(--font-color-gnb);
+}
+#gnb .content {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    background-color: var(--bg-color-gnb);
+}
+#gnb .gnb-menu {
+    display: flex;
+    flex: 1;
+}
+#gnb .gnb-menu .gnb-menu__item {
+    /* display: flex; */
+    flex: 1; /* flex-grow:1; flex-shrink:1; flex-basis:0; */
+    /* text-align: center; */
+    /* justify-content: center; */
+    position: relative;
+}
+#gnb .gnb-menu .gnb-menu__item:hover {
+    transition: all 1.5s;
+    
+}
+#gnb .gnb-menu .gnb-menu__item:hover::before{
+    content: attr(title);
+    display: inline-block;
+    position: absolute;
+    top: -15px;
+    right: -10px;
+    background-color: pink;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    font-size: 0.8em;
+}
+#gnb .gnb-menu .gnb-menu__item:hover::after {
+    content: ' ';
+    display: block;
+    position: absolute;
+    bottom: -10px;
+    left: 0; right: 0;
+    margin: 0 auto;
+    width: 0;
+    border-style: solid;
+    border-width: 10px;
+    border-color: transparent transparent white transparent;
+}
+#gnb .gnb-menu .gnb-menu__item a:hover {
+    text-decoration: underline;
+    
+}
+#gnb .gnb-menu .gnb-menu__item .title {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+}
+
+/* main */
+#main .content {
+    display: flex;
+}
+#main .content .aside {
+    flex: 2;
+    background-color: var(--bg-color-aside);
+}
+#main .content .section {
+    display: flex;
+    justify-content: center;
+    flex: 8;
+    background-color: var(--bg-color-section);
+}
+#main .content .section .signup-wrap {
+    width: 250px;
+    margin: 30px 0;
+    
+}
+#main .content .section .signup-wrap .title {
+    text-align: center;
+    letter-spacing: 0.5em;
+}
+#main .content .section .signup-wrap .signup {
+    background-color: #fff;
+    padding: 20px;
+}
+#main .content .section .signup-wrap .signup li {
+    margin: 0.5px 0;
+}
+#main .content .section .signup-wrap .btn.btn__join {
+    margin-top: 1.2em;
+}
+/* footer */
+#footer {
+    display: flex;
+    align-items: center;
+    height: 70px;
+}
+#footer .content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--bg-color-footer);
+    height: 100%;
+    color: var(--font-color-footer);
+}
+
+#footer .content address {
+    font-size: var(--font-size-middle);
+    font-weight: bold;
+
+}
+
+/* button */
+.btn {
+    color: var(--btn-color);
+    background-color: var(--btn-bg-color);
+}
+.btn__join {
+    padding: 5px;
+}
+.width--100 {
+    width: 100%;
+}
+.box-sizing--bdr {
+    box-sizing: border-box;
+}
+
+.font-weight-400 {
+    font-weight: 400; /*bold*/
+}
+
+.font-weight-700 {
+    font-weight: 700;
+}
+
+.margin-top-

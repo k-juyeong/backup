@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="cal3.css">
+    <link rel="stylesheet" href="../calendar/layout-sub.css">
+    <link rel="stylesheet" href="../calendar/common.css">
+</head>
+<body>
+    <!-- 헤더 -->
+    <header id="header">
+        <!-- 탑 메뉴 -->
+        <div class="header__menu-top">
+          <span class="my-menu"><a href="#">로그아웃</a></span>
+          <span class="my-menu"><a href="#">마이페이지</a></span>
+          <span class="my-menu"><a href="#">즐겨찾기</a></span>
+        </div>
+
+        <!-- 베너 -->
+        <div class="header__banner">
+          <!-- 메인 로고 -->
+          <div class="header__main">
+            <a href="#">
+              <h1>Heal-lo</h1>
+              <p>:Healthy location</p>
+            </a>  
+          </div>
+          <div class="header__sitemenu" id="siteMenuContain">
+            <div class="sitemenu-info" id="sitemenuInfo">게시판</div> <!-- 스크립트용 -->
+            <a href="#"><i class="fa-solid fa-location-dot site-icon"></i></a>
+            <a href="#"><i class="fa-solid fa-book-open site-icon"></i></a>
+            <a href="#"><i class="fa-solid fa-calendar-days site-icon"></i></a>
+            <a href="#"><i class="fa-solid fa-heart site-icon"></i></a>
+          </div>
+        </div>  
+    </header>
+
+    <!-- 메인 컨텐츠 -->
+    <main id="container">
+        <div class="header">
+            <h1>
+                <i class="far fa-calendar-check"></i>
+                <span>캘린더</span>
+              </h1>
+              <div class="calendar_title">
+                  <button class="prev">&#60;</button>
+                  <span class="current-year-month"></span>
+                  <button class="next">&#62;</button>
+              </div>
+        </div>
+        <section class="content-left">
+            <div class="left-main">
+                <div class="main-wrap">
+                    <div class="main-day"></div>
+                    <div class="main-date"></div>
+                </div>
+                <div class="todo-wrap">
+                    <div class="todo-title">Todo List</div>
+                    <form class="input-form">
+                        <input type="text" placeholder="write here!!" class="input-box" />
+                        <button type="submit" class="input-btn clickBtn">INPUT</button>
+                    </form>
+                    <ul class="todoList"></ul>
+                    <div class="showList">
+                        <span class="listText"></span>
+                        <span class="createDate"></span>
+                        <button class="closed">close</button>
+                    </div>
+                    <div class="bgblack"></div>
+                </div>
+            </div>
+        </section>
+        <section class="content-right">
+            <!-- 요일 -->
+            <div class="day-of-week">
+                <div class="dayHeader sun">Sun</div>
+                <div class="dayHeader">Mon</div>
+                <div class="dayHeader">Tue</div>
+                <div class="dayHeader">Wed</div>
+                <div class="dayHeader">Thu</div>
+                <div class="dayHeader">Fri</div>
+                <div class="dayHeader sat">Sat</div>
+            </div>
+            <!-- 날짜 -->
+            <div class="calendar-body"></div>
+        </section>
+
+    </main>
+
+
+    <!-- footer -->
+    <footer id="footer">
+        <div class="inner">
+            <h2>Heal-lo</h2>
+            <ul>
+                <li>상호명: heal-lo</li>
+                <li>대표: 1팀</li>
+                <li>주소: 울산광역시 남구 신정동</li>
+                <li>이메일: ulsanheallo@naver.com</li><br>
+                <li>Copyright 2022 헬로. All Rights Reserved.</li>
+            </ul>
+        </div>
+    </footer>
+    <script src="cal3.js"></script>
+    <script src="data.js"></script>
+    <script src="../calendar/layout-sub.js"></script>
+</body>
+</html>

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        main {
+            display: flex;
+            flex-direction: column;
+            background-color: darksalmon;
+            width: 800px;
+            height: 200px;
+            align-items: center;
+            justify-content: space-evenly;
+        }
+        div {
+            display: flex;
+        }
+        .choice {
+            display: flex;
+            width: 80%;
+            justify-content: center;
+            align-items: center;
+        }
+        .choice input {
+            flex: 1;
+            text-align: center;
+        }
+        .formula {
+            display: flex;
+            width: 80%;
+            justify-content: center;
+        }
+        .formula input {
+            width: 40px;
+            margin: 0 10px;
+            text-align: center;
+        }
+        .formula #cal {
+            width: 20px;
+            text-align: center;
+        }
+        .formula #userInput {
+            width: 50px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <div class="choice">
+            <p>사칙연산 선택</p>
+            <section>
+                <input type="radio" name="cal" id="plus"><label for="plus">덧셈</label>
+                <input type="radio" name="cal" id="minus"><label for="minus">뺄셈</label>
+                <input type="radio" name="cal" id="multiply"><label for="multiply">곱셈</label>
+                <input type="radio" name="cal" id="division"><label for="division">나눗셈</label>
+            </section>
+        </div>
+        <div class="formula">
+            <input id="val1" type="text">
+            <input id="cal" type="text">
+            <input id="val2" type="text">=<input id="userInput" type="text">
+            <button id="btnResult">결과 확인</button><button id="btnRestart">다시 풀기</button>
+        </div>
+    </main>
+    <script>
+        //1) 2개 랜덤값 발생
+        const randomValue1 = Math.floor(Math.random()*(1000-100))+100;
+        const randomValue2 = Math.floor(Math.random()*(1000-100))+100;
+
+        //2) input 요소에 랜덤값 반영
+        const $val1 = document.getElementById('val1');
+        const $val2 = document.getElementById('val2');
+
+        $val1.value = randomValue1;
+        $val2.value = randomValue2;
+        var choice = '?';
+
+        //사칙연산 선택
+        const $cal = document.getElementById('cal');
+
+        //덧셈 선택
+        const $plus = document.getElementById('plus');
+        $plus.addEventListener("click", radioPlus_f);
+
+        function radioPlus_f(evt) {
+            choice = '+';
+            $cal.value = choice;
+            result_f
+        }
+
+        //뺄셈 선택
+        const $minus = document.getElementById('minus');
+        $minus.addEventListener("click", radioMinus_f);
+        
+        function radioMinus_f(evt) {
+            choice = '-';
+            $cal.value = choice;
+            result_f
+        }
+        
+        //곱셈 선택
+        const $multiply = document.getElementById('multiply');
+        $multiply.addEventListener("click", radioMultiply_f);
+        
+        function radioMultiply_f(evt) {
+            choice = '*';
+            $cal.value = choice;
+            result_f
+        }
+        
+        //나눗셈 선택
+        const $division = document.getElementById('division');
+        $division.addEventListener("click", radioDivision_f);
+        
+        function radioDivision_f(evt) {
+            choice = '/';
+            $cal.value = choice;
+            result_f
+        }
+
+        //3) 결과 확인 버튼 클릭
+        //3-1) input 요소값을 더한 값과 사용자 입력값 비교
+        const $btnResult = document.getElementById('btnResult');
+        $btnResult.addEventListener("click", result_f);
+        const $userInput = document.getElementById('userInput');
+        
+        // 답 입력했는지 확인 (null check)
+        function result_f(evt) {
+            const plusResultOfComputer = parseInt($val1.value) + parseInt($val2.value);
+            const minusResultOfComputer = parseInt($val1.value) - parseInt($val2.value);
+            const multiplyResultOfComputer = parseInt($val1.value) * parseInt($val2.value);
+            const divisionResultOfComputer = Math.round((parseInt($val1.value) / parseInt($val2.value))*100)/100;
+            console.log(plusResultOfComputer);
+            console.log(minusResultOfComputer);
+            console.log(multiplyResultOfComputer);
+            console.log(divisionResultOfComputer);
+            
+            if($userInput.value == '') {
+                alert('답을 입력하세요');
+            } else {
+                isRight();
+            }
+        }
+            
+        // 덧셈, 뺄셈, 곱셈, 나눗셈 계산
+        function isRight(evt) {
+            const plusResultOfComputer = parseInt($val1.value) + parseInt($val2.value);
+            const minusResultOfComputer = parseInt($val1.value) - parseInt($val2.value);
+            const multiplyResultOfComputer = parseInt($val1.value) * parseInt($val2.value);
+            const divisionResultOfComputer = Math.round((parseInt($val1.value) / parseInt($val2.value))*100)/100;
+            
+            switch(choice){
+                case '+':
+                    if(plusResultOfComputer == $userInput.value){
+                        $userInput.style.backgroundColor = 'green';
+                    } else {
+                        $userInput.style.backgroundColor = 'red';
+                    }
+                    break;
+
+                case '-':
+                        if(minusResultOfComputer == $userInput.value){
+                            $userInput.style.backgroundColor = 'green';
+                    } else {
+                        $userInput.style.backgroundColor = 'red';
+                    }
+                    break;
+                    
+                case '*':
+                        if(multiplyResultOfComputer == $userInput.value){
+                            $userInput.style.backgroundColor = 'green';
+                        } else {
+                            $userInput.style.backgroundColor = 'red';
+                    }
+                    break;
+
+                case '/':
+                    if(divisionResultOfComputer == $userInput.value){
+                        $userInput.style.backgroundColor = 'green';
+                    } else {
+                        $userInput.style.backgroundColor = 'red';
+                    }
+                    break;
+            }
+        }
+        
+
+        
+        
+        //4) 다시 풀기 버튼 클릭
+        const $btnRestart = document.getElementById('btnRestart');
+        $btnRestart.addEventListener("click", restart_f);
+    
+        //4-1) input 요소에 랜덤값 반영
+        function restart_f(evt) {
+            $val1.value = Math.floor(Math.random()*(1000-100))+100;
+            $val2.value = Math.floor(Math.random()*(1000-100))+100;
+            choice = '?';
+            $userInput.value = null;
+            $userInput.style.backgroundColor = 'white';
+            return 0;
+        }
+        //4-2) 결과값 요소 초기화
+        
+    </script>
+</body>
+</html>

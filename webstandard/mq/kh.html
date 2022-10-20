@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {outline: 1px solid red;}
+        ul {
+            list-style: none;
+        }
+        #wrapper {
+            background-color: blueviolet;
+            display: flex;
+        }
+        #wrapper .kh {
+            flex: 1;
+        }
+        #wrapper .menu {
+            flex: 3;
+        }
+        #wrapper .menu > ul {
+            display: flex;
+        }
+        #wrapper .menu > ul >li {
+            flex: 1;
+        }
+        #wrapper .sns {
+            flex: 1;
+        }
+        #wrapper .sns > ul {
+            display: flex;
+        }
+        #wrapper .sns > ul> li {
+            flex: 1;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+        <div class="kh">
+            울산KH정보교육원
+        </div>
+        <nav class="menu">
+            <ul>
+                <li class="menu__item">java</li>
+                <li class="menu__item">html</li>
+                <li class="menu__item">css</li>
+                <li class="menu__item">javascript</li>
+                <li class="menu__item">spring</li>
+            </ul>
+        </nav>
+        <div class="sns">
+            <ul>
+                <li>fb</li>
+                <li>tw</li>
+                <li>ins</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

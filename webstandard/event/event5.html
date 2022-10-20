@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul,li {margin: 0; padding: 0; list-style-type: none;}
+    </style>
+</head>
+<body>
+    <div id="container">
+        <fieldset>
+            <legend>취미</legend>
+            <div class="select--all">
+                <input type="checkbox" name="" id="checkAll"><span>전체 선택</span>
+            </div>
+            <ul class="hobby">
+                <li class="hobby__item">
+                    <input type="checkbox" name="" id=""><span>취미1</span>
+                </li>
+                <li class="hobby__item">
+                    <input type="checkbox" name="" id=""><span>취미2</span>
+                </li>
+                <li class="hobby__item">
+                    <input type="checkbox" name="" id=""><span>취미3</span>
+                </li>
+            </ul>
+        </fieldset>
+    </div>
+    <script>
+        const checkAll_f = e => {
+            // console.log('click')
+            const $hobbyItems = document.querySelectorAll('.hobby .hobby__item input[type=checkbox]');
+
+            for(let $hobbyItem of $hobbyItems) {
+                if($hobbyItem.checked) {
+                    $hobbyItem.removeAttribute('checked');
+                } else {
+                    $hobbyItem.setAttribute('checked', 'checked');
+                }
+
+            }
+        }
+
+
+
+        document.querySelector('.select--all input[type=checkbox]')
+                .addEventListener('change', checkAll_f);
+    </script>
+</body>
+</html>

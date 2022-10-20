@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* * {outline: 1px solid red;} */
+        body {margin: 0; padding: 0;}
+        ul,li,p {margin: 0; padding: 0;}
+        ul,li {list-style-type: none;}
+        body {
+            background-color: #111;
+            color: #999;
+        }
+        #container {
+            display: flex;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+        }
+        #container .product {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #container .product .product__item {
+            flex-basis: 150px;
+            flex-shrink: 0; /* 뷰포트가 줄 때 item폭 줄임 방지 */
+            position: relative;
+            margin: 0 5px;
+            transition: all .4s;
+            opacity: 0.6; /* 투명도 0~1 */
+        }
+        #container .product .product__item:hover {
+            flex-basis: 200px;
+            margin: 0 20px;
+            opacity: 1;
+        }
+        #container .product .product__item:hover .profile.profile--pink {
+            color: rgb(48, 228, 252);
+            font-weight: bold;
+            /* text-decoration-style: solid; */
+        }
+        #container .product .product__item:hover .profile.profile--green {
+            color: rgb(10, 136, 10);
+        }
+        #container .product .product__item:hover .profile.profile--purple {
+            color: rgb(94, 240, 250);
+        }
+        #container .product .product__item:hover .profile .profile__contents{
+            max-height: 200px;
+        }
+
+        #container .product .product__item .profile img {
+            width: 100%;
+        }
+        #container .product .product__item .profile .profile__contents {
+            position: absolute;
+            bottom: 0; left: 0;
+            padding: 10px;
+        }
+        #container .product .product__item .profile .profile__contents:before {
+            content: '';
+            display: block;
+            background: rgb(167,165,165);
+            background: linear-gradient(90deg, rgba(167,165,165,0.38443396226415094) 0%, rgba(238,238,238,0.38915094339622647) 33%, rgba(238,238,238,0.42452830188679247) 70%, rgba(167,165,165,0.44811320754716977) 100%);            
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            top: 0;
+        }
+        #container .product .product__item .profile .profile__contents h3 {
+            margin-top: 0;
+            font-size: 16px;
+            text-align: center;
+        }
+        #container .product .product__item .profile .profile__contents h3 span {
+            display: block;
+            font-size: 0.9em;
+        }
+        #container .product .product__item .profile .profile__contents h3 span:before {
+            content: attr(title);
+            padding-right: 5px;
+        }
+        #container .product .product__item .profile .profile__contents h3 span:after {
+            content: attr(data-unit);
+        }
+        #container .product .product__item .profile .profile__contents p {
+            font-size: 12px;
+            font-weight: bold;
+            color: #fff;
+            max-height: 0;
+            max-width: 200px;
+            overflow: hidden;
+            opacity: 0;
+            line-height: 1.2;
+            transition: all 1s;
+        }
+        #container .product .product__item:hover .profile .profile__contents p {
+            max-height: 150px;
+            opacity: 1;
+            transition-delay: 0.4s;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <ul class="product">
+            <li class="product__item">
+                <div class="profile profile--pink">
+                    <img src="https://cdn.pixabay.com/photo/2020/11/01/23/22/breakfast-5705180_960_720.jpg" alt="">
+                    <div class="profile__contents">
+                        <h3>브런치세트<span title="가격" data-unit="원">11,000</span></h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque necessitatibus, perspiciatis culpa repellendus blanditiis dolor earum provident ipsum excepturi. Odit, aut esse impedit ducimus fugiat quidem sint dolorum quaerat repellendus.</p>
+                    </div>
+                </div>
+            </li>
+            <li class="product__item">
+                <div class="profile profile--green">
+                    <img src="https://cdn.pixabay.com/photo/2019/12/02/11/23/drink-4667507_960_720.jpg" alt="">
+                    <div class="profile__contents">
+                        <h3>카페라떼<span title="가격" data-unit="원">5,000</span></h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque necessitatibus, perspiciatis culpa repellendus blanditiis dolor earum provident ipsum excepturi. Odit, aut esse impedit ducimus fugiat quidem sint dolorum quaerat repellendus.</p>
+                    </div>
+                </div>
+            </li>
+            <li class="product__item">
+                <div class="profile profile--purple">
+                    <img src="https://cdn.pixabay.com/photo/2020/04/22/22/08/cafe-5080266_960_720.jpg" alt="">
+                    <div class="profile__contents">
+                        <h3>런치세트<span title="가격" data-unit="원">13,000</span></h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque necessitatibus, perspiciatis culpa repellendus blanditiis dolor earum provident ipsum excepturi. Odit, aut esse impedit ducimus fugiat quidem sint dolorum quaerat repellendus.</p>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>

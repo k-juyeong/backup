@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {outline: 1px solid red;}
+        body {margin: 0;}
+        ul{padding: 0; list-style: none;}
+        #wrapper {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            width: 80%;
+            margin: 0 auto;
+            background-color: lightsteelblue;
+        }
+
+        #wrapper > .container{
+            display: flex;
+            justify-content: center;
+        }
+
+        #wrapper > .container > .content {
+            width: 80%;
+        }    
+
+        /* uppermost */
+        #wrapper > #uppermost > .content {
+            width: 100vw;
+            height: 50px;
+            background-color: #003300;
+        }
+
+        /* header */
+        #wrapper > #header {background-color: #76d275;}
+        #wrapper > #header > .content {
+            height: 150px;
+            background-color: #2e7d32;
+        }
+
+        /* gnb */
+        #wrapper > #gnb {background-color: #cddc39;}
+        #wrapper > #gnb > .content {
+            height: 50px;
+            background-color: #99aa00;
+        }
+
+        /* main */
+        #wrapper > #main {
+            background-color: #ffeb3b;
+        }
+        #wrapper > #main > .content {
+            display: flex;
+            border: 5px solid #000;
+            box-sizing: border-box;
+        }
+        #wrapper > #main > .content > .content__contents {
+            flex: 3;
+            background-color: #ffb300;
+        }
+        #wrapper > #main > .content > .content__side-banner {
+            flex: 1;
+            background-color: #039be5;
+        }
+        #wrapper > #main > .content > .content__side-menu {
+            flex: 1; /* flex-grow:1 flex-shrink:1 flex-basis:0 */
+            background-color: #b0bec5;
+        }
+        /* footerMenu */
+        #wrapper > #footerMenu > .content {
+            width: 100vw;
+            height: 50px;
+            background-color: #fff59d;
+        }
+        
+        /* footer */
+        #wrapper > #footer > .content {
+            width: 100vw;
+            height: 150px;
+        }
+        /* add */
+        #add {
+            position: fixed;
+            top: 250px;
+            right: 0;
+            background-color: yellow;
+            width: 80px; 
+        }
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+        <div id="uppermost" class="container">
+            <div class="content">uppermost</div>
+        </div>
+        <header id="header" class="container">
+            <div class="content">header</div>
+        </header>
+        <nav id="gnb" class="container">
+            <div class="content">gnb</div>
+        </nav>
+        <main id="main" class="container">
+            <section class="content">
+                <article class="content__contents">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque veniam error tempora rem doloribus nesciunt consequuntur animi, soluta, repudiandae dolor cum esse, vel velit autem quae dignissimos odio iste perferendis.</p>
+                </article>
+                <aside class="content__side-banner">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse quae nam cumque, voluptatum odit, numquam ab at tenetur repudiandae doloremque sed voluptates corrupti itaque porro eos? Voluptates cupiditate repellendus quia.</p>
+                </aside>
+                <aside class="content__side-menu">
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reiciendis tenetur repudiandae doloribus quo natus libero facilis cum quisquam! Quia delectus facere labore ducimus quae porro rem tempora ipsam voluptatum inventore!</p>
+                </aside>
+            </section>
+        </main>
+        <div id="footerMenu" class="container">
+            <div class="content">footerMenu</div>
+        </div>
+        <footer id="footer" class="container">
+            <div class="content">footer</div>
+        </footer>
+    </div>
+    <div id="add">
+        <ul>
+            <li>광고1</li>
+            <li>광고2</li>
+            <li>광고3</li>
+            <li>광고4</li>
+            <li>광고5</li>
+        </ul>
+    </div>
+</body>
+</html>

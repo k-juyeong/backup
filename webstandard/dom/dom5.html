@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="create_element.js"></script>
+</head>
+<body>
+    <div id="container">
+        <ul>
+            <!-- <li>menu1</li>
+            <li>menu2</li>
+            <li>menu3</li> -->
+        </ul>
+    </div>
+    <button>클릭</button>
+    <script>
+        const $btn = document.querySelector('button');
+        $btn.addEventListener('click', btn_f=>{
+            const $li = makeElements('li', undefined, 'menu1');
+            document.querySelector('ul').appendChild($li);
+            const $li2 = makeElements('li', undefined, 'menu2');
+            document.querySelector('ul').appendChild($li2);
+            const $li3 = makeElements('li', undefined, 'menu3');
+            document.querySelector('ul').appendChild($li3);
+        });
+    </script>
+</body>
+</html>

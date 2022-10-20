@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script defer src="test3.js"></script>
+</head>
+<body>
+    <body>  <!-- span 요소 -->
+        <span id="test1"></span><br />
+        <span id="test2"></span>
+        <script language="javascript">    
+        // 변수 선언    
+        var test = true;    
+        if (test) {      
+            // if문 안에서 했습니다.      
+            // 다른 프로그래밍 언어면 if stack영역을 벗어나면 이 둘의 변수는 사라집니다.      
+            var val1 = "hello world";      
+            let val2 = "good morning";    }    
+            // 그러나 var는 stack영역을 벗어나도 val1의 변수가 있습니다.    document.getElementById("test1").innerHTML = val1;    // let는 변수의 값이 사라져 test2 span에 값이 남지 않습니다.    document.getElementById("test2").innerHTML = val2;  </script>
+</body>
+</html>

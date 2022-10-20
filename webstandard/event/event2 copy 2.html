@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container > ul > li:hover {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <ul class="menu">
+            <li class="menu__item">menu1</li>
+            <li class="menu__item">menu2</li>
+            <li class="menu__item">menu3</li>
+        </ul>
+        <ul id="msg">??? 메뉴를 선택했습니다.</ul>
+    </div>
+    <script>
+        const $menu = document.querySelector('.menu');
+        const $selectedMenu1 = $menu.firstElementChild;
+        const $selectedMenu2 = $selectedMenu1.nextElementSibling;
+        const $selectedMenu3 = $menu.lastElementChild;
+        
+        const menu_f = e => {
+            if(e.target == $selectedMenu1) {
+                document.getElementById('msg').textContent = $selectedMenu1.textContent + '를 선택했습니다';
+            } else if(e.target == $selectedMenu2) {
+                document.getElementById('msg').textContent = $selectedMenu2.textContent + '를 선택했습니다';
+            } else if (e.target == $selectedMenu3) {
+                document.getElementById('msg').textContent = $selectedMenu3.textContent + '를 선택했습니다';
+            }
+            
+        }
+        
+        
+        $selectedMenu1.addEventListener('click', menu_f);
+        $selectedMenu2.addEventListener('click', menu_f);
+        $selectedMenu3.addEventListener('click', menu_f);
+    </script>
+</body>
+</html>

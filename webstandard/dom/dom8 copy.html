@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* * {outline: 1px solid red;} */
+        ul {margin: 0; padding: 0;}
+        ul,li {list-style: none;}
+        #container {
+            width: 60%;
+            height: 50vh;
+            background-color: khaki;
+            margin-left: 50px;
+        }
+        #container .wrap {
+            display: flex;
+            align-items: stretch;
+            padding: 30px;
+            justify-content: center;
+        }
+        #container .wrap .title {
+            align-self: center;
+        }
+        #container .comment__list {
+            line-height: 30px;
+            margin: 0 20px;
+        }
+        #container .comment__list .comments .comment__item {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div class="wrap">
+            <label for="" class="title">댓글작성</label>
+            <textarea class="nickname" name="" id="" cols="30" rows="1"></textarea>
+            <textarea class="comment" name="" id="" cols="30" rows="3"></textarea>
+            <button class="btn btn__write">등록</button>
+        </div>
+    
+        <div class="comment__list">
+            <ul class="comments">
+                <!-- <li class="comment__item">댓글1</li>
+                <li class="comment__item">댓글2</li>
+                <li class="comment__item">댓글3</li> -->
+            </ul>
+        </div>
+        
+    </div>
+    <script>
+        let nickChk = true;
+        let nullChk = true;
+        const comment_f = e => {
+            nullCheck();
+            nicknameCheck();
+
+            if(nullChk && nickChk){
+                const $fragment = document.createDocumentFragment();
+            
+                $fragment.appendChild(createCommentList('li',{class:'comment__item'}, document.querySelector('.nickname').value,' : ',document.querySelector('.comment').value))
+                document.querySelector('ul').appendChild($fragment);
+                
+                clearComments();
+            } else {
+                return 0;
+            }
+        }
+
+        //element 생성
+        function createCommentList(name,attributes,...comments) {
+            const node = document.createElement(name);
+            if(attributes) {
+                for(let attr in attributes) {
+                    if(attributes.hasOwnProperty(attr)) {
+                        node.setAttribute(attr, attributes[attr]);
+                    }
+                }
+            }
+
+            if(comments) {
+                for(let ele of comments) {
+                    let str = ele;
+                    if(typeof str == 'string') {
+                        str = document.createTextNode(ele);
+                    }
+                    node.appendChild(str);
+                }
+            }
+            return node;
+        }
+        
+        //댓글 등록 후 댓글 창 초기화
+        function clearComments () {
+            document.querySelector('.comment').value = '';
+        }
+        
+        //댓글 내용 입력 확인(null check)
+        function nullCheck() {
+            if (document.querySelector('.comment').value == '') {
+                alert('댓글 내용을 입력하세요');
+                return nullChk = false;
+            } else {
+                return nullChk = true;
+            }
+        }
+        
+        //닉네임 입력 확인
+        function nicknameCheck() {
+            if (document.querySelector('.nickname').value == '') {
+                alert('닉네임을 입력하세요');
+                return nickChk = false;
+            } else {
+                return nickChk = true;
+            }
+        }
+
+        document.querySelector('button')
+                .addEventListener('click', comment_f);
+        </script>
+</body>
+</html>

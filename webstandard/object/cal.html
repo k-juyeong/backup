@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #check, #reset {
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <input id="num1" type="text">
+        <div>+</div>
+        <input id="num2" type="text">
+        <input id="result" type="text">
+        <button class="check">결과 확인</button>
+        <button class="reset">다시 풀기</button>
+    </main>
+
+    <script>
+
+            const x= document.getElementById('num1');
+            x.value = Math.floor(Math.random()*(1000-100))+100;
+
+            const y= document.getElementById('num2');
+            y.value = Math.floor(Math.random()*(1000-100))+100;
+
+            const btnCheck = document.querySelector(".check");
+            const z = document.getElementById('result').value;
+            
+
+            btnCheck.addEventListener("click", e => {
+
+                // btnCheck.style.backgroundColor = 'green';
+                // function check() {
+                    if(z == i + j) {
+                        btnCheck.style.backgroundColor = 'green';
+                    }
+                    // } else {
+                    //     btnCheck.style.backgroundColor = 'red';
+                    // }
+                // }
+            })
+    </script>
+    
+</body>
+</html>

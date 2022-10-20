@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {outline: 1px solid red;}
+
+        .menu {
+             outline: 5px solid blue;
+        }
+        .active {
+            background-color: yellow;
+        }
+        
+    </style>
+</head>
+<body>
+    <div id="container">
+        <ul class="menu">
+            <li class="menu__item" data-selected-menu="m1">menu1</li>
+            <li class="menu__item" data-selected-menu="m2">menu2</li>
+            <li class="menu__item" data-selected-menu="m3">menu3</li>
+        </ul>
+        <div id="msg">메뉴를 선택했습니다</div>
+    </div>
+    <script>
+        const menuItemClick_h = e => {
+            console.log(e.target.tagName);
+            //li요소만 처리
+            if(e.target.tagName != 'LI') return;
+
+            const $menuItems = document.querySelectorAll('#container .menu .menu__item');
+            // console.log($menuItems);
+            // for(let $menuItem of $menuItems) {
+            //     //case1)
+            //     // if($menuItem == e.target) {
+            //     //     $menuItem.classList.add('active');
+            //     // } else {
+            //     //     $menuItem.classList.remove('active');
+            //     // }
+            //     //case2)
+            //     // $menuItem.classList.toggle('active', $menuItem == e.target);
+            // }
+            
+            //case3)
+            $menuItems.forEach( $menuItem => 
+                   $menuItem.classList.toggle('active', $menuItem == e.target)
+            );
+
+        }
+        document.querySelector('.menu')
+                .addEventListener('click', menuItemClick_h);
+    </script>
+</body>
+</html>
